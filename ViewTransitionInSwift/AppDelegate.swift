@@ -15,7 +15,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        window = UIWindow(frame:UIScreen.mainScreen().bounds)
+        
+        let presentVC = PresentViewControllerOne()
+        let interactiveVC = InteractiveViewControllerOne()
+        interactiveVC.title = "interactiveView"
+        let tabBarVC = UITabBarController()
+        tabBarVC.viewControllers = NSArray(objects: presentVC, interactiveVC) as? [UIViewController]
+        window!.rootViewController = tabBarVC
+        
+        window!.makeKeyAndVisible()
         return true
     }
 
